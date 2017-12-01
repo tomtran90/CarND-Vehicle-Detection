@@ -40,7 +40,7 @@ I started by reading in all the `car` and `non-car` images.  Here are some examp
 
 ![alt text][image5]
 
-and `non-car` classes:
+and `non-car` images:
 
 ![alt text][image6]
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
@@ -63,7 +63,7 @@ I trained a linear SVM using HOG features and color features in cell 10 to 18 of
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I used the approach described in the lesson in cell 22 to 42 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Instead of overlap, I define how many cells to step in 'cells_per_step = 2'. The following is the result on the test images after sliding the window across the search area:
+I used the approach described in the lesson in cell 22 to 42 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Instead of overlap, I define how many cells to step in `cells_per_step = 2`. The following is the result on the test images after sliding the window across the search area:
 
 
 ![alt text][image2]
@@ -84,7 +84,7 @@ Here's a [link to my video result](./project_video_output.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video. Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections. Below is an example of the result on test images:
+I recorded the positions of positive detections in each frame of the video. Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections in cell 32 to 42 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Below is an example of the result on test images:
 
 ![alt text][image3]
 
