@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 [image4]: ./output_images/track.png
 [image5]: ./output_images/car.png
 [image6]: ./output_images/noncar.png
-[image7]: ./output_images/output_bboxes.png
+[image7]: ./output_images/gray_heat.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -65,9 +65,6 @@ I used the approach described in the lesson in cell 22 to 42 of the notebook [Ve
 
 ![alt text][image2]
 
-Since there are false positives, I used a heatmap and a threshold to only get the true car detections. Below is an example of the result on test images:
-
-![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
@@ -84,16 +81,16 @@ Here's a [link to my video result](./project_video_output.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
+Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections. Below is an example of the result on test images:
+
+![alt text][image3]
+
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
 ### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
+![alt text][image7]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
 ![alt text][image7]
