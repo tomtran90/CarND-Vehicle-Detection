@@ -36,9 +36,12 @@ The goals / steps of this project are the following:
 
 The code for this step is contained in the cell 5 and 6 of the IPython notebook [Vehicle_Detection](./Vehicle_Detection.ipynb).  
 
-I started by reading in all the `car` and `non-car` images.  Here are some examples of each of the `car` and `non-car` classes:
+I started by reading in all the `car` and `non-car` images.  Here are some examples of each of the `car`:
 
 ![alt text][image5]
+
+and `non-car` classes:
+
 ![alt text][image6]
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
@@ -50,7 +53,7 @@ Here is an example using the `RGB` color space and HOG parameters of `orientatio
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
 I tried various combinations of parameters to train the model on. `YCrCb`, `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` seems to be the best combination to build the model. Other color spaces like RGB and YUV also yield high accuracy, but seem to predict more false positives.
-With this combination, the test accuracy is 99%.
+With this combination, the test accuracy is 99%. I also tried `block_norm = L2-Hys`, but it does not provide improvement to the model.
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
