@@ -89,5 +89,6 @@ I recorded the positions of positive detections in each frame of the video. Sinc
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
+We could use more than one scale to find the cars and apply heat map to them. 
+We can also use multiple window sizes to search for cars for different Y's of the frame. 
+We could decrease the number of features or lose the color features to perform faster. The accuracy of the model will not change much without the color features.
