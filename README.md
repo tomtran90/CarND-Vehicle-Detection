@@ -16,7 +16,8 @@ The goals / steps of this project are the following:
 [image4]: ./output_images/track.png
 [image5]: ./output_images/car.png
 [image6]: ./output_images/noncar.png
-[image7]: ./output_images/gray_heat.png
+[image7]: ./output_images/final_heat.png
+
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -82,6 +83,10 @@ Here's a [link to my video result](./project_video_output.mp4)
 I recorded the positions of positive detections in each frame of the video. Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections in cell 27 to 37 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). I also define a class `Vehicle_History` to track the car and save previously found positions and set higher threshold to combat false positives. Below is an example of the result on test images:
 
 ![alt text][image3]
+
+The final results on test images are:
+
+![alt text][image7]
 
 ---
 
