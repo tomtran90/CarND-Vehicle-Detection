@@ -93,9 +93,9 @@ The final results on test images are:
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-Most of the problems I had were due to false positives. I had to train a better model or change the threshold to filter out those.
-The pipeline will likely fail in cases where the cars do not resemble the training set. It could be due to lighting and other environment factors. On-coming traffic could create false positives and distant cars could create false negatives. We could uuse speed calculation to track the car better. 
+Most of the problems I had were due to false positives. I had to train a better model or change the threshold or track the car from previous frames to filter out those.
+The pipeline will likely fail in cases where the cars do not resemble the training set. It could be due to lighting and other environment factors. On-coming traffic could create false positives and distant cars could create false negatives. We could use speed calculation to track the car better. 
 We also could use more than one scale to find the cars and apply heat map to them. 
 We can also use multiple window sizes to search for cars for different Y's of the frame. 
 We could decrease the number of features or lose the color features to perform faster. The accuracy of the model will not change much without the color features.
-Deep learning (CNN) could be use for vehicle detection and tracking.
+Deep learning (CNN) could also be used for vehicle detection and tracking.
