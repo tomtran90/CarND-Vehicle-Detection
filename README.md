@@ -58,7 +58,7 @@ I trained a linear SVM using HOG features and color features in cell 10 to 18 of
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I used the approach described in the lesson in cell 22 to 42 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Instead of overlap, I define how many cells to step in `cells_per_step = 2`. The following is the result on the test images after sliding the window across the search area:
+I used the approach described in the lesson in cell 20 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Instead of overlap, I define how many cells to step in `cells_per_step = 2`. The following is the result on the test images after sliding the window across the search area:
 
 
 ![alt text][image2]
@@ -79,7 +79,7 @@ Here's a [link to my video result](./project_video_output.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video. Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections in cell 32 to 42 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). Below is an example of the result on test images:
+I recorded the positions of positive detections in each frame of the video. Since there are false positives and a lot of boxes around true positives, I used a heatmap and a threshold to only get the true car detections in cell 27 to 37 of the notebook [Vehicle_Detection](./Vehicle_Detection.ipynb). I also define a class `Vehicle_History` to track the car and save previously found positions and set higher threshold to combat false positives. Below is an example of the result on test images:
 
 ![alt text][image3]
 
@@ -88,7 +88,9 @@ I recorded the positions of positive detections in each frame of the video. Sinc
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-We could use more than one scale to find the cars and apply heat map to them. 
+Most of the problems I had were due to false positives. I had to train a better model or change the threshold to filter out those.
+The pipeline will likely fail in cases where the cars do not resemble the training set. It could be due to lighting and other environment factors. On-coming traffic could create false positives and distant cars could create false negatives. We could uuse speed calculation to track the car better. 
+We also could use more than one scale to find the cars and apply heat map to them. 
 We can also use multiple window sizes to search for cars for different Y's of the frame. 
 We could decrease the number of features or lose the color features to perform faster. The accuracy of the model will not change much without the color features.
+Deep learning (CNN) could be use for vehicle detection and tracking.
